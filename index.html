@@ -6,64 +6,118 @@
 
 <title>Lanna Crown | อาหารล้านนา</title>
 
+<meta
+    name="description"
+    content="Lanna Crown - เสน่ห์ล้านนาในรสชาติที่คุณเลือก อาหารเหนือร่วมสมัยจากเชียงใหม่"
+>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+rel="stylesheet">
 
 <style>
 
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root{
     --wine:#651326;
-    --wine-dark:#350914;
+    --wine-dark:#320914;
+    --wine-deep:#21050d;
     --wine-light:#8e1d3d;
+
     --gold:#c9a227;
-    --gold-light:#f1d477;
-    --cream:#fffaf0;
+    --gold-light:#f3d779;
+
+    --cream:#fffaf2;
+    --cream-dark:#f5eadb;
+
     --white:#ffffff;
     --text:#2b2020;
-    --gray:#777;
+    --muted:#7b6e68;
+
     --line:#eadfce;
+
+    --shadow:0 15px 45px rgba(55,20,20,.10);
+    --shadow-lg:0 25px 70px rgba(40,10,15,.20);
+
+    --radius:10px;
 }
 
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
     scroll-behavior:smooth;
+    scroll-padding-top:85px;
 }
 
 body{
     font-family:'Kanit',sans-serif;
-    background:#fffaf4;
+    background:var(--cream);
     color:var(--text);
+    line-height:1.6;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    color:inherit;
 }
 
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(53,9,20,.96);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(241,212,119,.25);
+
+    background:rgba(50,9,20,.96);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(243,215,121,.20);
 }
 
 .nav{
-    max-width:1250px;
+    width:min(1250px,100%);
+    height:76px;
+
     margin:auto;
-    height:78px;
+    padding:0 25px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 25px;
+    gap:20px;
 }
 
 .brand{
@@ -73,22 +127,26 @@ header{
 }
 
 .brand-symbol{
-    width:46px;
-    height:46px;
+    width:45px;
+    height:45px;
+
+    border:1px solid var(--gold);
     border-radius:50%;
-    border:2px solid var(--gold);
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     color:var(--gold-light);
     font-size:22px;
 }
 
 .brand-name{
     color:white;
+
     font-family:'Playfair Display',serif;
     font-size:25px;
-    letter-spacing:.5px;
+    line-height:1;
 }
 
 .brand-name span{
@@ -96,123 +154,136 @@ header{
 }
 
 .brand-sub{
-    color:#d8c7b4;
-    font-size:10px;
+    color:#d5c1b5;
+    font-size:9px;
     letter-spacing:3px;
+    margin-top:4px;
 }
 
 .nav-links{
     display:flex;
     align-items:center;
-    gap:30px;
+    gap:28px;
 }
 
 .nav-links a{
-    color:#fff;
     text-decoration:none;
+    color:white;
     font-size:15px;
-    transition:.3s;
+    transition:.25s;
 }
 
 .nav-links a:hover{
     color:var(--gold-light);
 }
 
-.order-top{
+.cart-button{
+    border:1px solid rgba(243,215,121,.6);
+
     background:linear-gradient(
         135deg,
         var(--gold),
         var(--gold-light)
     );
 
-    color:#3b1018 !important;
-    padding:10px 18px;
+    color:#351019 !important;
+
+    padding:9px 17px;
     border-radius:30px;
+
     font-weight:600;
 }
 
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
-    max-width:1250px;
+    width:min(1250px,100%);
+    min-height:620px;
+
     margin:auto;
-    min-height:590px;
 
     display:grid;
-    grid-template-columns:
-        43%
-        57%;
+    grid-template-columns:44% 56%;
 
     background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(201,162,39,.10),
+            transparent 30%
+        ),
         linear-gradient(
-            120deg,
-            #360914,
-            #671326
+            125deg,
+            #320914,
+            #6b1429
         );
 
     overflow:hidden;
     position:relative;
 }
 
-
-/* decorative circles */
-
 .hero::before{
     content:"";
+
     position:absolute;
-    width:500px;
-    height:500px;
-    border:1px solid rgba(241,212,119,.18);
+
+    width:520px;
+    height:520px;
+
+    right:-220px;
+    top:-220px;
+
+    border:1px solid rgba(243,215,121,.20);
     border-radius:50%;
-    right:-170px;
-    top:-180px;
 }
 
 .hero::after{
     content:"";
+
     position:absolute;
+
     width:350px;
     height:350px;
-    border:1px solid rgba(241,212,119,.12);
+
+    left:-190px;
+    bottom:-190px;
+
+    border:1px solid rgba(243,215,121,.15);
     border-radius:50%;
-    left:-180px;
-    bottom:-180px;
 }
 
-
-/* hero text */
-
 .hero-content{
-    padding:
-        90px
-        30px
-        70px
-        65px;
+    position:relative;
+    z-index:2;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
 
-    position:relative;
-    z-index:2;
+    padding:80px 40px 80px 65px;
 }
 
 .eyebrow{
     color:var(--gold-light);
-    font-size:14px;
+
+    font-size:13px;
     letter-spacing:4px;
+
     margin-bottom:20px;
 }
 
 .hero h1{
-    color:#fff;
+    color:white;
+
     font-family:'Playfair Display',serif;
-    font-size:clamp(45px,5vw,72px);
+
+    font-size:clamp(45px,5vw,70px);
+
     line-height:1.1;
-    margin-bottom:20px;
+
+    margin-bottom:22px;
 }
 
 .hero h1 span{
@@ -220,55 +291,68 @@ header{
 }
 
 .hero-description{
-    color:#eadbd1;
-    font-size:18px;
-    line-height:1.8;
     max-width:500px;
+
+    color:#eadbd1;
+
+    font-size:17px;
+    line-height:1.9;
 }
 
 .hero-actions{
     display:flex;
-    gap:14px;
-    margin-top:35px;
     flex-wrap:wrap;
+    gap:12px;
+
+    margin-top:32px;
+}
+
+.btn{
+    border:none;
+
+    padding:13px 23px;
+
+    border-radius:7px;
+
+    font-size:15px;
+
+    text-decoration:none;
+
+    transition:.25s;
 }
 
 .btn-gold{
-    border:none;
     background:linear-gradient(
         135deg,
-        #b78a18,
-        #f1d477
+        #b98a17,
+        #f3d779
     );
 
     color:#351019;
-    padding:13px 25px;
-    border-radius:8px;
-    font-family:'Kanit';
-    font-size:16px;
+
     font-weight:600;
-    cursor:pointer;
-    text-decoration:none;
+}
+
+.btn-gold:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px rgba(201,162,39,.25);
 }
 
 .btn-outline{
-    border:1px solid rgba(241,212,119,.7);
     background:transparent;
+
     color:white;
-    padding:12px 25px;
-    border-radius:8px;
-    font-family:'Kanit';
-    font-size:16px;
-    cursor:pointer;
+
+    border:1px solid rgba(243,215,121,.65);
 }
 
-
-/* Hero image */
+.btn-outline:hover{
+    background:rgba(255,255,255,.08);
+}
 
 .hero-visual{
     position:relative;
-    min-height:590px;
-    overflow:hidden;
+    min-height:620px;
 }
 
 .hero-visual img{
@@ -279,126 +363,195 @@ header{
 
 .hero-visual::after{
     content:"";
+
     position:absolute;
     inset:0;
 
     background:
         linear-gradient(
             90deg,
-            #360914 0%,
-            transparent 35%
+            #320914 0%,
+            transparent 38%
         );
 }
 
-
-/* floating badge */
-
 .hero-badge{
     position:absolute;
-    z-index:5;
     right:30px;
     bottom:35px;
 
-    background:#fffaf0;
-    padding:18px 22px;
+    z-index:5;
+
+    background:rgba(255,250,242,.96);
+
     border-left:4px solid var(--gold);
 
-    box-shadow:0 15px 35px rgba(0,0,0,.3);
+    padding:17px 22px;
+
+    box-shadow:var(--shadow-lg);
+
+    min-width:230px;
 }
 
 .hero-badge small{
-    color:#777;
+    color:var(--muted);
+    font-size:11px;
 }
 
 .hero-badge strong{
     display:block;
+
     color:var(--wine);
-    font-size:19px;
+
+    font-size:18px;
 }
 
 
-/* =========================
-   SECTION
-========================= */
+/* =========================================================
+   COMMON SECTION
+========================================================= */
 
 .section{
-    max-width:1250px;
+    width:min(1250px,100%);
     margin:auto;
+
     padding:85px 25px;
 }
 
 .section-heading{
     display:flex;
     justify-content:space-between;
-    align-items:end;
+    align-items:flex-end;
+
     gap:20px;
-    margin-bottom:35px;
+
+    margin-bottom:32px;
 }
 
 .section-title{
     color:var(--wine);
+
     font-family:'Playfair Display',serif;
+
     font-size:40px;
+
+    line-height:1.2;
 }
 
 .section-title span{
     display:block;
+
     color:#8d7d72;
-    font-family:'Kanit';
-    font-size:15px;
+
+    font-family:'Kanit',sans-serif;
+
+    font-size:14px;
     font-weight:400;
-    margin-top:7px;
+
+    margin-top:8px;
 }
 
 .gold-line{
     width:65px;
     height:4px;
+
     background:var(--gold);
+
     margin-top:15px;
 }
 
 
-/* =========================
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.menu-tools{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.search-box{
+    position:relative;
+}
+
+.search-box input{
+    width:240px;
+
+    padding:11px 15px 11px 40px;
+
+    border:1px solid var(--line);
+    border-radius:7px;
+
+    outline:none;
+
+    background:white;
+}
+
+.search-box input:focus{
+    border-color:var(--gold);
+}
+
+.search-icon{
+    position:absolute;
+
+    left:14px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#999;
+}
+
+
+/* =========================================================
    CATEGORY
-========================= */
+========================================================= */
 
 .categories{
     display:flex;
-    gap:10px;
+    gap:9px;
+
     overflow-x:auto;
-    padding-bottom:15px;
-    margin-bottom:35px;
+
+    padding-bottom:12px;
+    margin-bottom:30px;
+
+    scrollbar-width:thin;
 }
 
 .category{
     flex:none;
 
     border:1px solid var(--line);
+
     background:white;
 
     color:#6d5d57;
 
-    padding:9px 18px;
-    border-radius:5px;
+    padding:9px 17px;
 
-    cursor:pointer;
-    transition:.3s;
+    border-radius:30px;
+
+    transition:.25s;
 }
 
 .category:hover,
 .category.active{
     background:var(--wine);
     border-color:var(--wine);
+
     color:white;
 }
 
 
-/* =========================
-   MENU LAYOUT
-========================= */
+/* =========================================================
+   MENU GRID
+========================================================= */
 
 .menu-grid{
-
     display:grid;
 
     grid-template-columns:
@@ -406,53 +559,61 @@ header{
         .8fr
         .8fr;
 
-    grid-auto-rows:minmax(420px,auto);
+    grid-auto-rows:minmax(430px,auto);
 
-    gap:22px;
+    gap:20px;
 }
-
-
-/* featured card */
 
 .menu-card.featured{
     grid-row:span 2;
 }
 
-
-/* card */
-
 .menu-card{
-
     background:white;
 
-    border:1px solid #eee5d8;
+    border:1px solid #eee3d5;
 
-    box-shadow:
-        0 10px 35px rgba(70,35,20,.08);
+    border-radius:var(--radius);
 
     overflow:hidden;
 
-    border-radius:4px;
-
-    transition:.35s;
+    box-shadow:var(--shadow);
 
     display:flex;
     flex-direction:column;
+
+    transition:.3s;
+
+    animation:fadeUp .45s ease both;
 }
 
 .menu-card:hover{
-    transform:translateY(-7px);
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-lg);
+}
 
-    box-shadow:
-        0 18px 45px rgba(70,35,20,.16);
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 
-/* image */
+/* =========================================================
+   CARD IMAGE
+========================================================= */
 
 .card-image{
+    height:225px;
+
     position:relative;
-    height:230px;
+
     overflow:hidden;
 }
 
@@ -463,111 +624,123 @@ header{
 .card-image img{
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     transition:.5s;
 }
 
 .menu-card:hover .card-image img{
-    transform:scale(1.05);
+    transform:scale(1.06);
 }
-
-
-/* badge */
 
 .badge{
     position:absolute;
-    top:15px;
+
     left:15px;
+    top:15px;
+
+    padding:6px 12px;
 
     background:var(--wine);
+
     color:white;
 
-    padding:6px 13px;
+    border-radius:4px;
 
-    font-size:13px;
-
-    border-radius:3px;
+    font-size:12px;
 }
 
 .badge.gold{
     background:var(--gold);
-    color:#3b1018;
+    color:#351019;
 }
 
 
-/* card body */
+/* =========================================================
+   CARD BODY
+========================================================= */
 
 .card-body{
-    padding:22px;
+    flex:1;
+
+    padding:21px;
+
     display:flex;
     flex-direction:column;
-    flex:1;
 }
 
 .card-top{
     display:flex;
     justify-content:space-between;
+
     gap:15px;
 }
 
 .card-name{
-    font-size:22px;
+    font-size:21px;
     font-weight:600;
 }
 
 .card-name small{
     display:block;
+
     color:#999;
-    font-size:13px;
+
+    font-size:12px;
+
     font-style:italic;
     font-weight:400;
 }
 
 .price{
     color:var(--wine);
-    font-size:23px;
+
+    font-size:22px;
     font-weight:700;
+
     white-space:nowrap;
 }
 
 .card-description{
     color:#777;
-    font-size:14px;
+
+    font-size:13px;
+
     line-height:1.8;
-    margin:14px 0 20px;
+
+    margin:13px 0 18px;
 }
 
 .card-footer{
     border-top:1px dashed #ddd2c5;
 
-    padding-top:15px;
+    padding-top:14px;
 
     margin-top:auto;
 
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 }
 
 .code{
     color:#999;
-    font-size:13px;
+    font-size:12px;
 }
 
 .add{
     border:1px solid var(--wine);
+
     background:white;
+
     color:var(--wine);
 
-    padding:8px 16px;
+    padding:7px 15px;
 
-    border-radius:4px;
+    border-radius:5px;
 
-    font-family:'Kanit';
-
-    cursor:pointer;
-
-    transition:.3s;
+    transition:.25s;
 }
 
 .add:hover{
@@ -576,9 +749,9 @@ header{
 }
 
 
-/* =========================
+/* =========================================================
    LIST MODE
-========================= */
+========================================================= */
 
 .menu-grid.list{
     display:flex;
@@ -588,89 +761,145 @@ header{
 .menu-grid.list .menu-card,
 .menu-grid.list .menu-card.featured{
     display:grid;
-    grid-template-columns:300px 1fr;
+
+    grid-template-columns:280px 1fr;
+
     grid-row:auto;
 }
 
 .menu-grid.list .card-image,
 .menu-grid.list .featured .card-image{
     height:100%;
-    min-height:230px;
+    min-height:220px;
 }
 
 
-/* =========================
+/* =========================================================
+   EMPTY SEARCH
+========================================================= */
+
+.no-results{
+    display:none;
+
+    text-align:center;
+
+    padding:70px 20px;
+
+    color:#999;
+
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-radius:10px;
+}
+
+.no-results.show{
+    display:block;
+}
+
+
+/* =========================================================
    DELIVERY
-========================= */
+========================================================= */
 
 .delivery-section{
-    background:#3b0b18;
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(201,162,39,.08),
+            transparent 30%
+        ),
+        var(--wine-dark);
+
     color:white;
-    max-width:none;
 }
 
 .delivery-inner{
-    max-width:1250px;
+    width:min(1250px,100%);
+
     margin:auto;
+
     padding:85px 25px;
 }
 
-.delivery-heading{
-    margin-bottom:40px;
-}
-
 .delivery-heading h2{
-    font-family:'Playfair Display',serif;
-    font-size:42px;
     color:var(--gold-light);
+
+    font-family:'Playfair Display',serif;
+
+    font-size:42px;
 }
 
 .delivery-heading p{
     color:#d8c5c5;
-    margin-top:10px;
+
+    margin-top:8px;
 }
 
 
-/*
-   ต่างจากกลุ่มอื่น:
-   ไม่ใช้ซ้ายข้อมูล / ขวาฟอร์ม
-   แต่ใช้ 3 ขั้นตอนด้านบน + form เต็มด้านล่าง
-*/
+/* steps */
 
 .delivery-steps{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-bottom:30px;
+
+    gap:14px;
+
+    margin:35px 0;
 }
 
 .step{
-    border:1px solid rgba(241,212,119,.25);
     padding:20px;
+
+    border:1px solid rgba(243,215,121,.22);
+
     background:rgba(255,255,255,.04);
+
+    border-radius:8px;
 }
 
 .step-number{
     color:var(--gold-light);
-    font-size:13px;
+
+    font-size:12px;
+    letter-spacing:2px;
 }
 
 .step strong{
     display:block;
+
     font-size:18px;
+
     margin-top:5px;
 }
 
+.step small{
+    color:#cdbbbb;
+}
+
+
+/* form */
 
 .delivery-form{
-    background:#fffaf3;
+    background:var(--cream);
+
     color:var(--text);
 
     padding:35px;
 
-    border-radius:5px;
+    border-radius:10px;
 
-    box-shadow:0 20px 50px rgba(0,0,0,.2);
+    box-shadow:var(--shadow-lg);
+}
+
+.form-title{
+    color:var(--wine);
+
+    font-size:22px;
+
+    margin-bottom:20px;
 }
 
 
@@ -678,54 +907,61 @@ header{
 
 .order-type{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:12px;
+
     margin-bottom:25px;
 }
 
 .type-option{
     border:1px solid #dfd3c5;
+
     background:white;
+
     padding:15px;
-    cursor:pointer;
-    border-radius:4px;
+
+    border-radius:7px;
+
+    transition:.2s;
 }
 
 .type-option.active{
     border-color:var(--wine);
-    background:#fff3f5;
+
+    background:#fff2f5;
+
+    box-shadow:0 0 0 2px rgba(101,19,38,.05);
 }
 
 .type-option strong{
     display:block;
+
     color:var(--wine);
 }
 
 .type-option span{
     color:#888;
-    font-size:13px;
+
+    font-size:12px;
 }
 
 
-/* form */
-
-.form-title{
-    color:var(--wine);
-    font-size:22px;
-    margin-bottom:20px;
-}
+/* form grid */
 
 .form-grid{
     display:grid;
-    grid-template-columns:
-        repeat(2,1fr);
 
-    gap:18px;
+    grid-template-columns:repeat(2,1fr);
+
+    gap:17px;
 }
 
 .field{
     display:flex;
     flex-direction:column;
+
     gap:6px;
 }
 
@@ -734,35 +970,38 @@ header{
 }
 
 .field label{
-    font-size:14px;
+    font-size:13px;
+
     font-weight:500;
 }
 
 .field input,
 .field select,
 .field textarea{
+    width:100%;
 
     border:1px solid #ded5ca;
 
-    padding:12px 13px;
+    background:white;
 
-    border-radius:4px;
+    padding:11px 12px;
 
-    font-family:'Kanit';
+    border-radius:6px;
 
     outline:none;
-
-    background:white;
 }
 
 .field input:focus,
 .field select:focus,
 .field textarea:focus{
     border-color:var(--gold);
+
+    box-shadow:0 0 0 3px rgba(201,162,39,.08);
 }
 
 .field textarea{
-    min-height:100px;
+    min-height:95px;
+
     resize:vertical;
 }
 
@@ -770,71 +1009,99 @@ header{
     margin-top:25px;
 
     background:var(--wine);
+
     color:white;
 
     border:none;
 
-    padding:14px 28px;
+    padding:13px 25px;
 
-    border-radius:4px;
+    border-radius:6px;
 
-    font-family:'Kanit';
+    font-size:15px;
 
-    font-size:16px;
-
-    cursor:pointer;
+    transition:.25s;
 }
 
 .confirm:hover{
     background:var(--wine-light);
+
+    transform:translateY(-2px);
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer{
-    background:#21050d;
+    background:var(--wine-deep);
+
     color:#cdb9b9;
+
     text-align:center;
-    padding:35px 20px;
+
+    padding:40px 20px;
 }
 
 footer strong{
     color:var(--gold-light);
+
+    font-family:'Playfair Display',serif;
+
+    font-size:20px;
 }
 
 footer p{
-    margin-top:7px;
-    font-size:13px;
+    margin-top:6px;
+
+    font-size:12px;
 }
 
 
-/* =========================
-   CART DRAWER
-========================= */
+/* =========================================================
+   CART
+========================================================= */
 
-.cart{
-
+.overlay{
     position:fixed;
 
-    z-index:2000;
+    inset:0;
+
+    z-index:1400;
+
+    background:rgba(0,0,0,.5);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+}
+
+.overlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.cart{
+    position:fixed;
+
+    z-index:1500;
 
     top:0;
-    right:-430px;
+    right:-440px;
 
-    width:410px;
+    width:420px;
     height:100vh;
 
-    background:#fffaf3;
+    background:var(--cream);
 
-    box-shadow:-15px 0 50px rgba(0,0,0,.25);
-
-    transition:.4s;
+    box-shadow:-20px 0 60px rgba(0,0,0,.25);
 
     display:flex;
     flex-direction:column;
+
+    transition:.4s ease;
 }
 
 .cart.open{
@@ -842,7 +1109,6 @@ footer p{
 }
 
 .cart-header{
-
     background:var(--wine);
 
     color:white;
@@ -850,69 +1116,116 @@ footer p{
     padding:20px;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 }
 
 .cart-header h3{
     font-family:'Playfair Display',serif;
+
     font-size:23px;
 }
 
 .close-cart{
     background:none;
+
     border:none;
+
     color:white;
-    font-size:25px;
-    cursor:pointer;
+
+    font-size:28px;
 }
 
 .cart-items{
     flex:1;
-    overflow:auto;
-    padding:20px;
-}
 
-.cart-item{
+    overflow-y:auto;
 
-    display:flex;
-
-    justify-content:space-between;
-
-    border-bottom:1px solid #e8ded2;
-
-    padding:13px 0;
-
-    gap:15px;
-}
-
-.cart-item-name{
-    font-weight:500;
-}
-
-.cart-item-price{
-    color:var(--wine);
-    font-weight:600;
-    white-space:nowrap;
+    padding:18px;
 }
 
 .empty-cart{
     text-align:center;
+
     color:#999;
-    padding:60px 10px;
+
+    padding:70px 15px;
+}
+
+.cart-item{
+    padding:14px 0;
+
+    border-bottom:1px solid #e5dace;
+
+    display:grid;
+
+    grid-template-columns:1fr auto;
+
+    gap:10px;
+}
+
+.cart-item-name{
+    font-weight:500;
+
+    color:var(--text);
+}
+
+.cart-item-price{
+    color:var(--wine);
+
+    font-weight:600;
+}
+
+.cart-controls{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:8px;
+}
+
+.qty-btn{
+    width:27px;
+    height:27px;
+
+    border:1px solid #d9cbbb;
+
+    background:white;
+
+    border-radius:4px;
+}
+
+.qty-number{
+    min-width:20px;
+
+    text-align:center;
+
+    font-size:13px;
+}
+
+.remove-btn{
+    border:none;
+
+    background:none;
+
+    color:#a44;
+
+    font-size:12px;
+
+    margin-left:5px;
 }
 
 .cart-bottom{
-
-    border-top:1px solid #e2d7ca;
+    border-top:1px solid #ded3c8;
 
     padding:20px;
 }
 
 .total{
     display:flex;
+
     justify-content:space-between;
 
     color:var(--wine);
@@ -923,7 +1236,6 @@ footer p{
 }
 
 .cart-checkout{
-
     width:100%;
 
     border:none;
@@ -934,43 +1246,173 @@ footer p{
 
     padding:13px;
 
-    font-family:'Kanit';
+    border-radius:6px;
 
     font-weight:600;
 
-    border-radius:4px;
-
-    cursor:pointer;
+    font-size:15px;
 }
 
 
-/* cart backdrop */
+/* =========================================================
+   TOAST
+========================================================= */
 
-.overlay{
+.toast{
+    position:fixed;
 
+    z-index:3000;
+
+    left:50%;
+    bottom:25px;
+
+    transform:translate(-50%,20px);
+
+    background:var(--wine-dark);
+
+    color:white;
+
+    padding:12px 20px;
+
+    border-radius:30px;
+
+    box-shadow:var(--shadow-lg);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+    visibility:visible;
+
+    transform:translate(-50%,0);
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
     position:fixed;
 
     inset:0;
 
-    background:rgba(0,0,0,.45);
+    z-index:2500;
 
-    z-index:1500;
+    background:rgba(0,0,0,.55);
 
-    display:none;
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
 }
 
-.overlay.show{
-    display:block;
+.modal.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal-box{
+    width:min(550px,100%);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:var(--cream);
+
+    border-radius:12px;
+
+    box-shadow:var(--shadow-lg);
+
+    padding:30px;
+}
+
+.modal-box h2{
+    color:var(--wine);
+
+    font-family:'Playfair Display',serif;
+
+    margin-bottom:15px;
+}
+
+.order-summary{
+    background:white;
+
+    border:1px solid var(--line);
+
+    padding:15px;
+
+    border-radius:7px;
+
+    margin-bottom:20px;
+}
+
+.summary-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:7px 0;
+
+    border-bottom:1px dashed #ddd;
+}
+
+.summary-row:last-child{
+    border-bottom:none;
+}
+
+.modal-actions{
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.modal-actions button{
+    flex:1;
+
+    padding:12px;
+
+    border-radius:6px;
+
+    border:1px solid var(--line);
+
+    background:white;
+}
+
+.modal-actions .success{
+    background:var(--wine);
+
+    color:white;
+
+    border-color:var(--wine);
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
-    .nav-links a:not(.order-top){
+    .nav-links{
+        gap:15px;
+    }
+
+    .nav-links a:not(.cart-button){
         display:none;
     }
 
@@ -979,12 +1421,13 @@ footer p{
     }
 
     .hero-content{
-        min-height:480px;
+        min-height:500px;
+
         padding:70px 30px;
     }
 
     .hero-visual{
-        min-height:400px;
+        min-height:430px;
     }
 
     .menu-grid{
@@ -997,30 +1440,37 @@ footer p{
     }
 
     .featured .card-image{
-        height:320px;
+        height:330px;
     }
 
     .delivery-steps{
         grid-template-columns:1fr;
     }
-
 }
 
 
-@media(max-width:600px){
+@media(max-width:650px){
 
     .nav{
         height:68px;
+
         padding:0 15px;
+    }
+
+    .brand-symbol{
+        width:38px;
+        height:38px;
+
+        font-size:18px;
     }
 
     .brand-name{
         font-size:21px;
     }
 
-    .brand-symbol{
-        width:38px;
-        height:38px;
+    .brand-sub{
+        font-size:7px;
+        letter-spacing:2px;
     }
 
     .hero{
@@ -1028,31 +1478,52 @@ footer p{
     }
 
     .hero-content{
-        padding:65px 25px;
+        padding:60px 23px;
     }
 
     .hero h1{
-        font-size:45px;
+        font-size:44px;
     }
 
     .hero-description{
         font-size:15px;
     }
 
-    .section{
-        padding:60px 15px;
+    .hero-visual{
+        min-height:350px;
     }
 
-    .section-title{
-        font-size:32px;
+    .hero-badge{
+        right:15px;
+        bottom:20px;
+
+        min-width:auto;
+    }
+
+    .section{
+        padding:60px 15px;
     }
 
     .section-heading{
         display:block;
     }
 
+    .section-title{
+        font-size:32px;
+    }
+
+    .menu-tools{
+        margin-top:20px;
+    }
+
+    .search-box,
+    .search-box input{
+        width:100%;
+    }
+
     .menu-grid{
         display:flex;
+
         flex-direction:column;
     }
 
@@ -1071,7 +1542,7 @@ footer p{
 
     .menu-grid.list .card-image,
     .menu-grid.list .featured .card-image{
-        height:240px;
+        height:230px;
     }
 
     .form-grid{
@@ -1092,9 +1563,13 @@ footer p{
 
     .cart{
         width:100%;
+
         right:-100%;
     }
 
+    .modal-box{
+        padding:22px;
+    }
 }
 
 </style>
@@ -1104,15 +1579,15 @@ footer p{
 <body>
 
 
-<!-- =========================
+<!-- =========================================================
      HEADER
-========================= -->
+========================================================= -->
 
 <header>
 
 <div class="nav">
 
-    <div class="brand">
+    <a href="#home" class="brand" style="text-decoration:none;">
 
         <div class="brand-symbol">
             ✦
@@ -1130,7 +1605,7 @@ footer p{
 
         </div>
 
-    </div>
+    </a>
 
 
     <nav class="nav-links">
@@ -1147,12 +1622,13 @@ footer p{
             ติดต่อ
         </a>
 
-        <a href="javascript:void(0)"
-           class="order-top"
-           onclick="openCart()">
-
-            🛒 <span id="cartCount">0</span>
-
+        <a
+            href="javascript:void(0)"
+            class="cart-button"
+            onclick="openCart()"
+        >
+            🛒 ตะกร้า
+            <span id="cartCount">0</span>
         </a>
 
     </nav>
@@ -1162,10 +1638,11 @@ footer p{
 </header>
 
 
-
-<!-- =========================
+<!-- =========================================================
      HERO
-========================= -->
+========================================================= -->
+
+<main id="home">
 
 <section class="hero">
 
@@ -1181,29 +1658,20 @@ footer p{
         </h1>
 
         <p class="hero-description">
-
             จากวัตถุดิบท้องถิ่น
             สู่สำรับอาหารเหนือร่วมสมัย
-            คัดสรรรสชาติให้เข้ากับมื้อพิเศษ
-            ของคุณ
-
+            คัดสรรรสชาติและความอร่อย
+            ให้เข้ากับมื้อพิเศษของคุณ
         </p>
-
 
         <div class="hero-actions">
 
-            <a href="#menu"
-               class="btn-gold">
-
+            <a href="#menu" class="btn btn-gold">
                 ดูสำรับอาหาร
-
             </a>
 
-            <a href="#delivery"
-               class="btn-outline">
-
+            <a href="#delivery" class="btn btn-outline">
                 สั่งอาหาร
-
             </a>
 
         </div>
@@ -1214,9 +1682,9 @@ footer p{
     <div class="hero-visual">
 
         <img
-        src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=85"
-        alt="อาหารล้านนา">
-
+            src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=90"
+            alt="อาหารไทย"
+        >
 
         <div class="hero-badge">
 
@@ -1235,10 +1703,9 @@ footer p{
 </section>
 
 
-
-<!-- =========================
+<!-- =========================================================
      MENU
-========================= -->
+========================================================= -->
 
 <section class="section" id="menu">
 
@@ -1247,12 +1714,14 @@ footer p{
         <div>
 
             <h2 class="section-title">
+
                 สำรับจากครัวล้านนา
 
                 <span>
                     เลือกจานโปรดของคุณ
                     แล้วเติมความอร่อยให้มื้อนี้
                 </span>
+
             </h2>
 
             <div class="gold-line"></div>
@@ -1260,22 +1729,36 @@ footer p{
         </div>
 
 
-        <div>
+        <div class="menu-tools">
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    🔎
+                </span>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="ค้นหาเมนู..."
+                    oninput="searchMenu()"
+                >
+
+            </div>
+
 
             <button
-            class="add"
-            onclick="setLayout('grid')">
-
-                ▦ แบบการ์ด
-
+                class="add"
+                onclick="setLayout('grid')"
+            >
+                ▦ การ์ด
             </button>
 
             <button
-            class="add"
-            onclick="setLayout('list')">
-
-                ☰ แบบรายการ
-
+                class="add"
+                onclick="setLayout('list')"
+            >
+                ☰ รายการ
             </button>
 
         </div>
@@ -1288,60 +1771,69 @@ footer p{
     <div class="categories">
 
         <button
-        class="category active"
-        onclick="filterMenu('all',this)">
+            class="category active"
+            onclick="filterMenu('all',this)"
+        >
             ทั้งหมด
         </button>
 
         <button
-        class="category"
-        onclick="filterMenu('main',this)">
+            class="category"
+            onclick="filterMenu('main',this)"
+        >
             🍜 จานหลัก
         </button>
 
         <button
-        class="category"
-        onclick="filterMenu('side',this)">
+            class="category"
+            onclick="filterMenu('side',this)"
+        >
             🥓 เครื่องเคียง
         </button>
 
         <button
-        class="category"
-        onclick="filterMenu('drink',this)">
+            class="category"
+            onclick="filterMenu('drink',this)"
+        >
             🥤 เครื่องดื่ม
         </button>
 
         <button
-        class="category"
-        onclick="filterMenu('recommend',this)">
+            class="category"
+            onclick="filterMenu('recommend',this)"
+        >
             ✦ เมนูพิเศษ
         </button>
 
     </div>
 
 
-    <!-- MENU GRID -->
+    <!-- MENU -->
 
     <div class="menu-grid" id="menuGrid">
 
 
-        <!-- 1 -->
+        <!-- MENU 01 -->
 
         <article
-        class="menu-card featured"
-        data-type="main recommend">
+            class="menu-card featured"
+            data-type="main recommend"
+            data-name="ข้าวซอยไก่"
+        >
 
             <div class="card-image">
 
                 <img
-                src="https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?auto=format&fit=crop&w=1000&q=85">
+                    src="https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?auto=format&fit=crop&w=1000&q=90"
+                    alt="ข้าวซอยไก่"
+                    loading="lazy"
+                >
 
                 <div class="badge gold">
                     ✦ SIGNATURE
                 </div>
 
             </div>
-
 
             <div class="card-body">
 
@@ -1363,15 +1855,11 @@ footer p{
 
                 </div>
 
-
                 <p class="card-description">
-
                     เส้นข้าวซอยนุ่มในน้ำแกงกะทิเข้มข้น
-                    หอมเครื่องแกงเหนือ เสิร์ฟพร้อม
-                    ไก่นุ่ม หอมแดง และผักสด
-
+                    หอมเครื่องแกงเหนือ เสิร์ฟพร้อมไก่นุ่ม
+                    หอมแดง และผักสด
                 </p>
-
 
                 <div class="card-footer">
 
@@ -1380,11 +1868,10 @@ footer p{
                     </span>
 
                     <button
-                    class="add"
-                    onclick="addToCart('ข้าวซอยไก่',69)">
-
+                        class="add"
+                        onclick="addToCart('ข้าวซอยไก่',69)"
+                    >
                         + เพิ่ม
-
                     </button>
 
                 </div>
@@ -1394,17 +1881,21 @@ footer p{
         </article>
 
 
-
-        <!-- 2 -->
+        <!-- MENU 02 -->
 
         <article
-        class="menu-card"
-        data-type="main recommend">
+            class="menu-card"
+            data-type="main recommend"
+            data-name="ข้าวซอยเนื้อ"
+        >
 
             <div class="card-image">
 
                 <img
-                src="https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=800&q=85">
+                    src="https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=800&q=90"
+                    alt="ข้าวซอยเนื้อ"
+                    loading="lazy"
+                >
 
                 <div class="badge">
                     แนะนำ
@@ -1412,19 +1903,13 @@ footer p{
 
             </div>
 
-
             <div class="card-body">
 
                 <div class="card-top">
 
                     <h3 class="card-name">
-
                         ข้าวซอยเนื้อ
-
-                        <small>
-                            Khao Soi Beef
-                        </small>
-
+                        <small>Khao Soi Beef</small>
                     </h3>
 
                     <div class="price">
@@ -1433,14 +1918,10 @@ footer p{
 
                 </div>
 
-
                 <p class="card-description">
-
                     เนื้อนุ่มละลาย เคี่ยวจนเข้าเนื้อ
                     ในน้ำแกงข้าวซอยรสกลมกล่อม
-
                 </p>
-
 
                 <div class="card-footer">
 
@@ -1449,11 +1930,10 @@ footer p{
                     </span>
 
                     <button
-                    class="add"
-                    onclick="addToCart('ข้าวซอยเนื้อ',79)">
-
+                        class="add"
+                        onclick="addToCart('ข้าวซอยเนื้อ',79)"
+                    >
                         + เพิ่ม
-
                     </button>
 
                 </div>
@@ -1463,33 +1943,31 @@ footer p{
         </article>
 
 
-
-        <!-- 3 -->
+        <!-- MENU 03 -->
 
         <article
-        class="menu-card"
-        data-type="main">
+            class="menu-card"
+            data-type="main"
+            data-name="ข้าวซอยเจ"
+        >
 
             <div class="card-image">
 
                 <img
-                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=85">
+                    src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=90"
+                    alt="ข้าวซอยเจ"
+                    loading="lazy"
+                >
 
             </div>
-
 
             <div class="card-body">
 
                 <div class="card-top">
 
                     <h3 class="card-name">
-
                         ข้าวซอยเจ
-
-                        <small>
-                            Khao Soi Vegan
-                        </small>
-
+                        <small>Khao Soi Vegan</small>
                     </h3>
 
                     <div class="price">
@@ -1498,14 +1976,10 @@ footer p{
 
                 </div>
 
-
                 <p class="card-description">
-
-                    สูตรปรุงจากวัตถุดิบจากพืช
+                    สูตรจากวัตถุดิบจากพืช
                     รสเข้มข้น หอมเครื่องแกงเหนือ
-
                 </p>
-
 
                 <div class="card-footer">
 
@@ -1514,11 +1988,10 @@ footer p{
                     </span>
 
                     <button
-                    class="add"
-                    onclick="addToCart('ข้าวซอยเจ',69)">
-
+                        class="add"
+                        onclick="addToCart('ข้าวซอยเจ',69)"
+                    >
                         + เพิ่ม
-
                     </button>
 
                 </div>
@@ -1528,17 +2001,21 @@ footer p{
         </article>
 
 
-
-        <!-- 4 -->
+        <!-- MENU 04 -->
 
         <article
-        class="menu-card"
-        data-type="side">
+            class="menu-card"
+            data-type="side"
+            data-name="ไส้อั่ว"
+        >
 
             <div class="card-image">
 
                 <img
-                src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&q=85">
+                    src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&q=90"
+                    alt="ไส้อั่ว"
+                    loading="lazy"
+                >
 
                 <div class="badge">
                     สูตรดั้งเดิม
@@ -1546,19 +2023,13 @@ footer p{
 
             </div>
 
-
             <div class="card-body">
 
                 <div class="card-top">
 
                     <h3 class="card-name">
-
                         ไส้อั่ว
-
-                        <small>
-                            Sai Ua Sausage
-                        </small>
-
+                        <small>Sai Ua Sausage</small>
                     </h3>
 
                     <div class="price">
@@ -1567,15 +2038,11 @@ footer p{
 
                 </div>
 
-
                 <p class="card-description">
-
                     ไส้อั่วสูตรเชียงใหม่
                     อัดแน่นด้วยสมุนไพร
                     หอมเครื่องเทศ รสจัดกำลังดี
-
                 </p>
-
 
                 <div class="card-footer">
 
@@ -1584,11 +2051,10 @@ footer p{
                     </span>
 
                     <button
-                    class="add"
-                    onclick="addToCart('ไส้อั่ว',49)">
-
+                        class="add"
+                        onclick="addToCart('ไส้อั่ว',49)"
+                    >
                         + เพิ่ม
-
                     </button>
 
                 </div>
@@ -1598,33 +2064,31 @@ footer p{
         </article>
 
 
-
-        <!-- 5 -->
+        <!-- MENU 05 -->
 
         <article
-        class="menu-card"
-        data-type="side">
+            class="menu-card"
+            data-type="side"
+            data-name="แคบหมู"
+        >
 
             <div class="card-image">
 
                 <img
-                src="https://images.unsplash.com/photo-1606851094655-b2599d7f2b67?auto=format&fit=crop&w=800&q=85">
+                    src="https://images.unsplash.com/photo-1606851094655-b2599d7f2b67?auto=format&fit=crop&w=800&q=90"
+                    alt="แคบหมู"
+                    loading="lazy"
+                >
 
             </div>
-
 
             <div class="card-body">
 
                 <div class="card-top">
 
                     <h3 class="card-name">
-
                         แคบหมู
-
-                        <small>
-                            Pork Crackling
-                        </small>
-
+                        <small>Pork Crackling</small>
                     </h3>
 
                     <div class="price">
@@ -1633,15 +2097,11 @@ footer p{
 
                 </div>
 
-
                 <p class="card-description">
-
                     แคบหมูทอดใหม่
                     กรอบฟู หอมมัน
                     เครื่องเคียงคู่สำรับเหนือ
-
                 </p>
-
 
                 <div class="card-footer">
 
@@ -1650,11 +2110,10 @@ footer p{
                     </span>
 
                     <button
-                    class="add"
-                    onclick="addToCart('แคบหมู',39)">
-
+                        class="add"
+                        onclick="addToCart('แคบหมู',39)"
+                    >
                         + เพิ่ม
-
                     </button>
 
                 </div>
@@ -1664,17 +2123,21 @@ footer p{
         </article>
 
 
-
-        <!-- 6 -->
+        <!-- MENU 06 -->
 
         <article
-        class="menu-card"
-        data-type="main recommend">
+            class="menu-card"
+            data-type="main recommend"
+            data-name="ข้าวซอยทะเล"
+        >
 
             <div class="card-image">
 
                 <img
-                src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=800&q=85">
+                    src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=800&q=90"
+                    alt="ข้าวซอยทะเล"
+                    loading="lazy"
+                >
 
                 <div class="badge gold">
                     PREMIUM
@@ -1682,19 +2145,13 @@ footer p{
 
             </div>
 
-
             <div class="card-body">
 
                 <div class="card-top">
 
                     <h3 class="card-name">
-
                         ข้าวซอยทะเล
-
-                        <small>
-                            Khao Soi Seafood
-                        </small>
-
+                        <small>Khao Soi Seafood</small>
                     </h3>
 
                     <div class="price">
@@ -1703,15 +2160,11 @@ footer p{
 
                 </div>
 
-
                 <p class="card-description">
-
                     ข้าวซอยประยุกต์
                     รวมกุ้ง ปลาหมึก และหอย
                     ในน้ำแกงเข้มข้น
-
                 </p>
-
 
                 <div class="card-footer">
 
@@ -1720,11 +2173,10 @@ footer p{
                     </span>
 
                     <button
-                    class="add"
-                    onclick="addToCart('ข้าวซอยทะเล',99)">
-
+                        class="add"
+                        onclick="addToCart('ข้าวซอยทะเล',99)"
+                    >
                         + เพิ่ม
-
                     </button>
 
                 </div>
@@ -1734,33 +2186,31 @@ footer p{
         </article>
 
 
-
-        <!-- 7 -->
+        <!-- MENU 07 -->
 
         <article
-        class="menu-card"
-        data-type="drink">
+            class="menu-card"
+            data-type="drink"
+            data-name="ชาเย็น"
+        >
 
             <div class="card-image">
 
                 <img
-                src="https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=800&q=85">
+                    src="https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=800&q=90"
+                    alt="ชาเย็น"
+                    loading="lazy"
+                >
 
             </div>
-
 
             <div class="card-body">
 
                 <div class="card-top">
 
                     <h3 class="card-name">
-
                         ชาเย็น
-
-                        <small>
-                            Thai Iced Tea
-                        </small>
-
+                        <small>Thai Iced Tea</small>
                     </h3>
 
                     <div class="price">
@@ -1769,15 +2219,11 @@ footer p{
 
                 </div>
 
-
                 <p class="card-description">
-
                     ชาไทยหอมเข้ม
                     รสหวานกลมกล่อม
                     เติมความสดชื่นให้มื้ออาหาร
-
                 </p>
-
 
                 <div class="card-footer">
 
@@ -1786,11 +2232,10 @@ footer p{
                     </span>
 
                     <button
-                    class="add"
-                    onclick="addToCart('ชาเย็น',29)">
-
+                        class="add"
+                        onclick="addToCart('ชาเย็น',29)"
+                    >
                         + เพิ่ม
-
                     </button>
 
                 </div>
@@ -1800,33 +2245,31 @@ footer p{
         </article>
 
 
-
-        <!-- 8 -->
+        <!-- MENU 08 -->
 
         <article
-        class="menu-card"
-        data-type="drink">
+            class="menu-card"
+            data-type="drink"
+            data-name="น้ำส้มสด"
+        >
 
             <div class="card-image">
 
                 <img
-                src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=85">
+                    src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=90"
+                    alt="น้ำส้มสด"
+                    loading="lazy"
+                >
 
             </div>
-
 
             <div class="card-body">
 
                 <div class="card-top">
 
                     <h3 class="card-name">
-
                         น้ำส้มสด
-
-                        <small>
-                            Fresh Orange
-                        </small>
-
+                        <small>Fresh Orange</small>
                     </h3>
 
                     <div class="price">
@@ -1835,15 +2278,11 @@ footer p{
 
                 </div>
 
-
                 <p class="card-description">
-
                     น้ำส้มคั้นสด
                     รสเปรี้ยวหวาน
                     ดื่มง่ายและสดชื่น
-
                 </p>
-
 
                 <div class="card-footer">
 
@@ -1852,11 +2291,10 @@ footer p{
                     </span>
 
                     <button
-                    class="add"
-                    onclick="addToCart('น้ำส้มสด',35)">
-
+                        class="add"
+                        onclick="addToCart('น้ำส้มสด',35)"
+                    >
                         + เพิ่ม
-
                     </button>
 
                 </div>
@@ -1866,33 +2304,31 @@ footer p{
         </article>
 
 
-
-        <!-- 9 -->
+        <!-- MENU 09 -->
 
         <article
-        class="menu-card"
-        data-type="side">
+            class="menu-card"
+            data-type="side"
+            data-name="ข้าวเหนียว"
+        >
 
             <div class="card-image">
 
                 <img
-                src="https://images.unsplash.com/photo-1604908177522-0409e2c8d7a8?auto=format&fit=crop&w=800&q=85">
+                    src="https://images.unsplash.com/photo-1604908177522-0409e2c8d7a8?auto=format&fit=crop&w=800&q=90"
+                    alt="ข้าวเหนียว"
+                    loading="lazy"
+                >
 
             </div>
-
 
             <div class="card-body">
 
                 <div class="card-top">
 
                     <h3 class="card-name">
-
                         ข้าวเหนียว
-
-                        <small>
-                            Sticky Rice
-                        </small>
-
+                        <small>Sticky Rice</small>
                     </h3>
 
                     <div class="price">
@@ -1901,15 +2337,11 @@ footer p{
 
                 </div>
 
-
                 <p class="card-description">
-
                     ข้าวเหนียวหุงใหม่
                     เหนียวนุ่ม หอม
-                    เหมาะสำหรับรับประทานคู่กับอาหารเหนือ
-
+                    เหมาะกับอาหารเหนือทุกจาน
                 </p>
-
 
                 <div class="card-footer">
 
@@ -1918,11 +2350,10 @@ footer p{
                     </span>
 
                     <button
-                    class="add"
-                    onclick="addToCart('ข้าวเหนียว',15)">
-
+                        class="add"
+                        onclick="addToCart('ข้าวเหนียว',15)"
+                    >
                         + เพิ่ม
-
                     </button>
 
                 </div>
@@ -1932,33 +2363,31 @@ footer p{
         </article>
 
 
-
-        <!-- 10 -->
+        <!-- MENU 10 -->
 
         <article
-        class="menu-card"
-        data-type="main">
+            class="menu-card"
+            data-type="main"
+            data-name="ขนมจีนน้ำเงี้ยว"
+        >
 
             <div class="card-image">
 
                 <img
-                src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=800&q=85">
+                    src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=800&q=90"
+                    alt="ขนมจีนน้ำเงี้ยว"
+                    loading="lazy"
+                >
 
             </div>
-
 
             <div class="card-body">
 
                 <div class="card-top">
 
                     <h3 class="card-name">
-
                         ขนมจีนน้ำเงี้ยว
-
-                        <small>
-                            Khanom Jeen Nam Ngiao
-                        </small>
-
+                        <small>Khanom Jeen Nam Ngiao</small>
                     </h3>
 
                     <div class="price">
@@ -1967,28 +2396,23 @@ footer p{
 
                 </div>
 
-
                 <p class="card-description">
-
                     น้ำเงี้ยวรสเข้มข้น
                     เสิร์ฟพร้อมผักสด
                     และเครื่องเคียงแบบล้านนา
-
                 </p>
-
 
                 <div class="card-footer">
 
                     <span class="code">
-                        MENU 09
+                        MENU 10
                     </span>
 
                     <button
-                    class="add"
-                    onclick="addToCart('ขนมจีนน้ำเงี้ยว',59)">
-
+                        class="add"
+                        onclick="addToCart('ขนมจีนน้ำเงี้ยว',59)"
+                    >
                         + เพิ่ม
-
                     </button>
 
                 </div>
@@ -1997,20 +2421,23 @@ footer p{
 
         </article>
 
+    </div>
 
+
+    <div class="no-results" id="noResults">
+        <div style="font-size:35px;">🍜</div>
+        <strong>ไม่พบเมนูที่ค้นหา</strong>
+        <p>ลองค้นหาด้วยชื่อเมนูอื่น</p>
     </div>
 
 </section>
 
 
-
-<!-- =========================
+<!-- =========================================================
      DELIVERY
-========================= -->
+========================================================= -->
 
-<section
-class="delivery-section"
-id="delivery">
+<section class="delivery-section" id="delivery">
 
 <div class="delivery-inner">
 
@@ -2021,14 +2448,12 @@ id="delivery">
         </h2>
 
         <p>
-            เลือกวิธีรับอาหารที่สะดวก
-            แล้วกรอกข้อมูลสำหรับจัดเตรียมออเดอร์
+            เลือกวิธีรับอาหาร
+            และกรอกข้อมูลสำหรับจัดเตรียมออเดอร์
         </p>
 
     </div>
 
-
-    <!-- 3 STEPS -->
 
     <div class="delivery-steps">
 
@@ -2085,9 +2510,6 @@ id="delivery">
     </div>
 
 
-
-    <!-- FORM -->
-
     <div class="delivery-form">
 
         <h3 class="form-title">
@@ -2095,14 +2517,13 @@ id="delivery">
         </h3>
 
 
-        <!-- TYPE -->
-
         <div class="order-type">
 
             <div
-            class="type-option active"
-            id="deliveryOption"
-            onclick="selectOrderType('delivery')">
+                class="type-option active"
+                id="deliveryOption"
+                onclick="selectOrderType('delivery')"
+            >
 
                 🚚
 
@@ -2118,9 +2539,10 @@ id="delivery">
 
 
             <div
-            class="type-option"
-            id="pickupOption"
-            onclick="selectOrderType('pickup')">
+                class="type-option"
+                id="pickupOption"
+                onclick="selectOrderType('pickup')"
+            >
 
                 🏠
 
@@ -2137,36 +2559,36 @@ id="delivery">
         </div>
 
 
-
         <div class="form-grid">
 
-
             <div class="field">
 
                 <label>
-                    ชื่อผู้รับ
+                    ชื่อผู้รับ *
                 </label>
 
                 <input
-                type="text"
-                placeholder="เช่น กนกพร อินทนิน">
+                    id="customerName"
+                    type="text"
+                    placeholder="เช่น กนกพร"
+                >
 
             </div>
 
 
-
             <div class="field">
 
                 <label>
-                    เบอร์โทรศัพท์
+                    เบอร์โทรศัพท์ *
                 </label>
 
                 <input
-                type="tel"
-                placeholder="08X-XXX-XXXX">
+                    id="customerPhone"
+                    type="tel"
+                    placeholder="08X-XXX-XXXX"
+                >
 
             </div>
-
 
 
             <div class="field full">
@@ -2176,11 +2598,12 @@ id="delivery">
                 </label>
 
                 <input
-                type="text"
-                placeholder="เช่น 123/45 อาคาร A">
+                    id="address"
+                    type="text"
+                    placeholder="เช่น 123/45 อาคาร A"
+                >
 
             </div>
-
 
 
             <div class="field">
@@ -2190,11 +2613,11 @@ id="delivery">
                 </label>
 
                 <input
-                type="text"
-                placeholder="ระบุถ้ามี">
+                    type="text"
+                    placeholder="ระบุถ้ามี"
+                >
 
             </div>
-
 
 
             <div class="field">
@@ -2204,11 +2627,11 @@ id="delivery">
                 </label>
 
                 <input
-                type="text"
-                placeholder="เช่น ซอย 5">
+                    type="text"
+                    placeholder="เช่น ซอย 5"
+                >
 
             </div>
-
 
 
             <div class="field">
@@ -2218,11 +2641,11 @@ id="delivery">
                 </label>
 
                 <input
-                type="text"
-                placeholder="เช่น ถนนสุเทพ">
+                    type="text"
+                    placeholder="เช่น ถนนสุเทพ"
+                >
 
             </div>
-
 
 
             <div class="field">
@@ -2232,11 +2655,11 @@ id="delivery">
                 </label>
 
                 <input
-                type="text"
-                placeholder="ระบุตำบล">
+                    type="text"
+                    placeholder="ระบุตำบล"
+                >
 
             </div>
-
 
 
             <div class="field">
@@ -2246,11 +2669,11 @@ id="delivery">
                 </label>
 
                 <input
-                type="text"
-                placeholder="ระบุอำเภอ">
+                    type="text"
+                    placeholder="ระบุอำเภอ"
+                >
 
             </div>
-
 
 
             <div class="field">
@@ -2261,7 +2684,7 @@ id="delivery">
 
                 <select>
 
-                    <option>
+                    <option value="">
                         -- เลือกจังหวัด --
                     </option>
 
@@ -2286,7 +2709,6 @@ id="delivery">
             </div>
 
 
-
             <div class="field">
 
                 <label>
@@ -2294,34 +2716,34 @@ id="delivery">
                 </label>
 
                 <input
-                type="text"
-                placeholder="50000">
+                    type="text"
+                    placeholder="50000"
+                >
 
             </div>
-
 
 
             <div class="field full">
 
                 <label>
-                    จุดสังเกต / หมายเหตุถึงร้าน
+                    จุดสังเกต / หมายเหตุ
                 </label>
 
                 <textarea
-                placeholder="เช่น บ้านหลังสีขาว อยู่ตรงข้ามร้านกาแฟ หรือ ไม่ใส่ผักชี"></textarea>
+                    id="note"
+                    placeholder="เช่น บ้านหลังสีขาว อยู่ตรงข้ามร้านกาแฟ หรือ ไม่ใส่ผักชี"
+                ></textarea>
 
             </div>
-
 
         </div>
 
 
         <button
-        class="confirm"
-        onclick="submitOrder()">
-
-            ✦ ส่งข้อมูลการสั่งซื้อ
-
+            class="confirm"
+            onclick="submitOrder()"
+        >
+            ✦ ตรวจสอบและส่งออเดอร์
         </button>
 
     </div>
@@ -2331,10 +2753,9 @@ id="delivery">
 </section>
 
 
-
-<!-- =========================
+<!-- =========================================================
      FOOTER
-========================= -->
+========================================================= -->
 
 <footer id="contact">
 
@@ -2347,27 +2768,31 @@ id="delivery">
     </p>
 
     <p>
-        © 2026 Lanna Crown • Chiang Mai
+        Chiang Mai • Northern Thai Dining
+    </p>
+
+    <p>
+        © 2026 Lanna Crown. All rights reserved.
     </p>
 
 </footer>
 
 
-
-<!-- =========================
+<!-- =========================================================
      CART
-========================= -->
+========================================================= -->
 
 <div
-class="overlay"
-id="overlay"
-onclick="closeCart()">
-</div>
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()"
+></div>
 
 
-<div
-class="cart"
-id="cart">
+<aside
+    class="cart"
+    id="cart"
+>
 
     <div class="cart-header">
 
@@ -2376,26 +2801,23 @@ id="cart">
         </h3>
 
         <button
-        class="close-cart"
-        onclick="closeCart()">
-
+            class="close-cart"
+            onclick="closeCart()"
+        >
             ×
-
         </button>
 
     </div>
 
 
     <div
-    class="cart-items"
-    id="cartItems">
-
+        class="cart-items"
+        id="cartItems"
+    >
         <div class="empty-cart">
-
+            🛒<br>
             ยังไม่มีรายการอาหาร
-
         </div>
-
     </div>
 
 
@@ -2415,42 +2837,118 @@ id="cart">
 
 
         <button
-        class="cart-checkout"
-        onclick="goToDelivery()">
-
+            class="cart-checkout"
+            onclick="goToDelivery()"
+        >
             ดำเนินการสั่งซื้อ
-
         </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+>
+    เพิ่มเมนูลงตะกร้าแล้ว ✦
+</div>
+
+
+<!-- =========================================================
+     CONFIRMATION MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="orderModal"
+>
+
+    <div class="modal-box">
+
+        <h2>
+            ตรวจสอบออเดอร์
+        </h2>
+
+        <div
+            class="order-summary"
+            id="orderSummary"
+        ></div>
+
+        <div class="modal-actions">
+
+            <button onclick="closeModal()">
+                กลับไปแก้ไข
+            </button>
+
+            <button
+                class="success"
+                onclick="confirmOrder()"
+            >
+                ✓ ยืนยันออเดอร์
+            </button>
+
+        </div>
 
     </div>
 
 </div>
 
 
-
 <script>
 
-
-/* =========================
-   CART
-========================= */
+/* =========================================================
+   DATA
+========================================================= */
 
 let cart = [];
 
+let selectedOrderType = "delivery";
 
-function addToCart(name,price){
+let currentCategory = "all";
 
-    cart.push({
-        name:name,
-        price:price
-    });
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+function addToCart(name, price){
+
+    const existing = cart.find(
+        item => item.name === name
+    );
+
+    if(existing){
+
+        existing.qty += 1;
+
+    }else{
+
+        cart.push({
+            name:name,
+            price:price,
+            qty:1
+        });
+
+    }
 
     updateCart();
 
-    openCart();
+    showToast(
+        "เพิ่ม " + name + " ลงตะกร้าแล้ว ✦"
+    );
 
 }
 
+
+/* =========================================================
+   UPDATE CART
+========================================================= */
 
 function updateCart(){
 
@@ -2464,31 +2962,44 @@ function updateCart(){
         document.getElementById("total");
 
 
-    count.innerText = cart.length;
+    const itemCount =
+        cart.reduce(
+            (sum,item) => sum + item.qty,
+            0
+        );
+
+
+    const totalPrice =
+        cart.reduce(
+            (sum,item) =>
+                sum + (item.price * item.qty),
+            0
+        );
+
+
+    count.innerText = itemCount;
+
+    total.innerText =
+        totalPrice.toLocaleString();
 
 
     if(cart.length === 0){
 
         container.innerHTML = `
             <div class="empty-cart">
+                🛒<br>
                 ยังไม่มีรายการอาหาร
             </div>
         `;
-
-        total.innerText = "0";
 
         return;
     }
 
 
-    let sum = 0;
-
     container.innerHTML = "";
 
 
     cart.forEach((item,index)=>{
-
-        sum += item.price;
 
         container.innerHTML += `
 
@@ -2500,14 +3011,41 @@ function updateCart(){
                         ${item.name}
                     </div>
 
-                    <small>
-                        รายการที่ ${index+1}
-                    </small>
+                    <div class="cart-controls">
+
+                        <button
+                            class="qty-btn"
+                            onclick="changeQty(${index},-1)"
+                        >
+                            −
+                        </button>
+
+                        <span class="qty-number">
+                            ${item.qty}
+                        </span>
+
+                        <button
+                            class="qty-btn"
+                            onclick="changeQty(${index},1)"
+                        >
+                            +
+                        </button>
+
+                        <button
+                            class="remove-btn"
+                            onclick="removeItem(${index})"
+                        >
+                            ลบ
+                        </button>
+
+                    </div>
 
                 </div>
 
                 <div class="cart-item-price">
-                    ฿${item.price}
+                    ฿${(
+                        item.price * item.qty
+                    ).toLocaleString()}
                 </div>
 
             </div>
@@ -2516,16 +3054,46 @@ function updateCart(){
 
     });
 
+}
 
-    total.innerText = sum;
+
+/* =========================================================
+   CHANGE QUANTITY
+========================================================= */
+
+function changeQty(index,change){
+
+    cart[index].qty += change;
+
+    if(cart[index].qty <= 0){
+
+        cart.splice(index,1);
+
+    }
+
+    updateCart();
 
 }
 
 
+/* =========================================================
+   REMOVE
+========================================================= */
 
-/* =========================
-   OPEN CART
-========================= */
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+
+    showToast("ลบรายการแล้ว");
+
+}
+
+
+/* =========================================================
+   OPEN / CLOSE CART
+========================================================= */
 
 function openCart(){
 
@@ -2553,10 +3121,9 @@ function closeCart(){
 }
 
 
-
-/* =========================
+/* =========================================================
    LAYOUT
-========================= */
+========================================================= */
 
 function setLayout(type){
 
@@ -2577,12 +3144,14 @@ function setLayout(type){
 }
 
 
-
-/* =========================
+/* =========================================================
    FILTER
-========================= */
+========================================================= */
 
 function filterMenu(type,button){
+
+    currentCategory = type;
+
 
     document
         .querySelectorAll(".category")
@@ -2594,78 +3163,147 @@ function filterMenu(type,button){
     button.classList.add("active");
 
 
-    document
-        .querySelectorAll(".menu-card")
-        .forEach(card=>{
-
-            if(type === "all"){
-
-                card.style.display = "";
-
-                return;
-
-            }
-
-
-            const cardType =
-                card.dataset.type;
-
-
-            if(cardType.includes(type)){
-
-                card.style.display = "";
-
-            }else{
-
-                card.style.display = "none";
-
-            }
-
-        });
+    applyFilters();
 
 }
 
 
+/* =========================================================
+   SEARCH
+========================================================= */
 
-/* =========================
-   ORDER TYPE
-========================= */
+function searchMenu(){
 
-function selectOrderType(type){
+    applyFilters();
 
-    const delivery =
-        document.getElementById("deliveryOption");
-
-    const pickup =
-        document.getElementById("pickupOption");
+}
 
 
-    delivery.classList.remove("active");
+/* =========================================================
+   APPLY FILTERS
+========================================================= */
 
-    pickup.classList.remove("active");
+function applyFilters(){
+
+    const keyword =
+        document
+            .getElementById("searchInput")
+            .value
+            .trim()
+            .toLowerCase();
 
 
-    if(type === "delivery"){
+    const cards =
+        document.querySelectorAll(".menu-card");
 
-        delivery.classList.add("active");
+
+    let visible = 0;
+
+
+    cards.forEach(card=>{
+
+        const type =
+            card.dataset.type || "";
+
+        const name =
+            card.dataset.name || "";
+
+
+        const categoryMatch =
+            currentCategory === "all" ||
+            type.includes(currentCategory);
+
+
+        const searchMatch =
+            name.toLowerCase().includes(keyword);
+
+
+        if(categoryMatch && searchMatch){
+
+            card.style.display = "";
+
+            visible++;
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    const noResults =
+        document.getElementById("noResults");
+
+
+    if(visible === 0){
+
+        noResults.classList.add("show");
 
     }else{
 
-        pickup.classList.add("active");
+        noResults.classList.remove("show");
 
     }
 
 }
 
 
+/* =========================================================
+   ORDER TYPE
+========================================================= */
 
-/* =========================
-   CHECKOUT
-========================= */
+function selectOrderType(type){
+
+    selectedOrderType = type;
+
+
+    document
+        .getElementById("deliveryOption")
+        .classList.remove("active");
+
+    document
+        .getElementById("pickupOption")
+        .classList.remove("active");
+
+
+    if(type === "delivery"){
+
+        document
+            .getElementById("deliveryOption")
+            .classList.add("active");
+
+    }else{
+
+        document
+            .getElementById("pickupOption")
+            .classList.add("active");
+
+    }
+
+}
+
+
+/* =========================================================
+   GO TO DELIVERY
+========================================================= */
 
 function goToDelivery(){
 
+    if(cart.length === 0){
+
+        showToast(
+            "กรุณาเลือกเมนูอาหารก่อน"
+        );
+
+        return;
+
+    }
+
+
     closeCart();
+
 
     document
         .getElementById("delivery")
@@ -2676,17 +3314,16 @@ function goToDelivery(){
 }
 
 
-
-/* =========================
-   SUBMIT
-========================= */
+/* =========================================================
+   SUBMIT ORDER
+========================================================= */
 
 function submitOrder(){
 
     if(cart.length === 0){
 
-        alert(
-            "กรุณาเลือกเมนูอาหารก่อนสั่งซื้อ"
+        showToast(
+            "กรุณาเลือกเมนูอาหารก่อน"
         );
 
         return;
@@ -2694,16 +3331,122 @@ function submitOrder(){
     }
 
 
-    alert(
-        "ส่งข้อมูลการสั่งซื้อเรียบร้อยแล้ว ✦\n\n" +
-        "ร้านจะตรวจสอบรายการและติดต่อกลับเพื่อยืนยันออเดอร์"
-    );
-
-}
-
-
-</script>
+    const name =
+        document
+            .getElementById("customerName")
+            .value
+            .trim();
 
 
-</body>
-</html>
+    const phone =
+        document
+            .getElementById("customerPhone")
+            .value
+            .trim();
+
+
+    if(!name){
+
+        showToast(
+            "กรุณากรอกชื่อผู้รับ"
+        );
+
+        document
+            .getElementById("customerName")
+            .focus();
+
+        return;
+
+    }
+
+
+    if(!phone){
+
+        showToast(
+            "กรุณากรอกเบอร์โทรศัพท์"
+        );
+
+        document
+            .getElementById("customerPhone")
+            .focus();
+
+        return;
+
+    }
+
+
+    const total =
+        cart.reduce(
+            (sum,item)=>
+                sum + item.price * item.qty,
+            0
+        );
+
+
+    let itemsHTML = "";
+
+
+    cart.forEach(item=>{
+
+        itemsHTML += `
+
+            <div class="summary-row">
+
+                <span>
+                    ${item.name} × ${item.qty}
+                </span>
+
+                <strong>
+                    ฿${(
+                        item.price * item.qty
+                    ).toLocaleString()}
+                </strong>
+
+            </div>
+
+        `;
+
+    });
+
+
+    document.getElementById(
+        "orderSummary"
+    ).innerHTML = `
+
+        <div class="summary-row">
+
+            <span>
+                ผู้รับ
+            </span>
+
+            <strong>
+                ${name}
+            </strong>
+
+        </div>
+
+        <div class="summary-row">
+
+            <span>
+                เบอร์โทร
+            </span>
+
+            <strong>
+                ${phone}
+            </strong>
+
+        </div>
+
+        <div class="summary-row">
+
+            <span>
+                วิธีรับอาหาร
+            </span>
+
+            <strong>
+                ${
+                    selectedOrderType === "delivery"
+                    ? "🚚 จัดส่งถึงที่"
+                    : "🏠 รับเองที่ร้าน"
+                }
+            </
